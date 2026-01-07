@@ -21,6 +21,7 @@ shared/
 ├── responses/      # Common response types
 ├── middleware/     # Shared middleware (CORS, Auth, IP Whitelist, etc.)
 ├── database/       # Database connection utilities
+├── storage/        # Storage utilities (GCS, etc.)
 └── README.md
 ```
 
@@ -105,3 +106,11 @@ db, err := database.Initialize(config)
 ### database
 - `Initialize()` - Database connection
 - `GetConfigFromEnv()` - Load config from environment
+
+### storage
+- `GCSClient` - Google Cloud Storage client
+- `NewGCSClient()` - Create new GCS client
+- `SaveWebhookJSON()` - Save webhook JSON to GCS
+- `SaveWebhookJSONFromBytes()` - Save webhook JSON from bytes to GCS
+- `ReadWebhookJSON()` - Read webhook JSON from GCS
+- `DeleteWebhookJSON()` - Delete webhook JSON from GCS
