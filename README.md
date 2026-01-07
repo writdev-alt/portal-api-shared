@@ -7,16 +7,11 @@ Shared utilities and common code for all microservices.
 Add to your service's `go.mod`:
 
 ```go
-require github.com/writdev-alt/portal-api/shared v0.0.0
-
-replace github.com/writdev-alt/portal-api/shared => ../shared
+require github.com/writdev-alt/portal-api-shared v0.1.0
 ```
 
-Or if using Git:
-
-```go
-require github.com/writdev-alt/portal-api/shared v0.1.0
-```
+This package is available as a separate Git repository at:
+**https://github.com/writdev-alt/portal-api-shared.git**
 
 ## 📁 Structure
 
@@ -34,7 +29,7 @@ shared/
 ### Pagination
 
 ```go
-import "github.com/writdev-alt/portal-api/shared/utils"
+import "github.com/writdev-alt/portal-api-shared/utils"
 
 type ListRequest struct {
     Filter string `form:"filter"`
@@ -58,7 +53,7 @@ func (h *Handler) List(c *gin.Context) {
 ### Responses
 
 ```go
-import "github.com/writdev-alt/portal-api/shared/responses"
+import "github.com/writdev-alt/portal-api-shared/responses"
 
 // Error response
 c.JSON(400, responses.NewErrorResponse(err))
@@ -70,7 +65,7 @@ c.JSON(200, responses.NewMessageResponse("Success"))
 ### Middleware
 
 ```go
-import "github.com/writdev-alt/portal-api/shared/middleware"
+import "github.com/writdev-alt/portal-api-shared/middleware"
 
 router.Use(middleware.CORS())
 router.Use(middleware.Logger())
@@ -81,7 +76,7 @@ router.Use(middleware.AuthMiddleware())
 ### Database
 
 ```go
-import "github.com/writdev-alt/portal-api/shared/database"
+import "github.com/writdev-alt/portal-api-shared/database"
 
 config := database.GetConfigFromEnv()
 db, err := database.Initialize(config)

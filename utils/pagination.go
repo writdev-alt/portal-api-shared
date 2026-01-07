@@ -3,7 +3,7 @@ package utils
 // Pagination represents pagination parameters
 type Pagination struct {
 	Page    int `form:"page,default=1" json:"page,omitempty"`
-	PerPage int `form:"per_page,default=20" json:"per_page,omitempty"`
+	PerPage int `form:"perPage,default=20" json:"perPage,omitempty"`
 }
 
 // Validate validates and normalizes pagination parameters
@@ -31,10 +31,10 @@ func (p *Pagination) Limit() int {
 
 // PaginationInfo represents pagination metadata in response
 type PaginationInfo struct {
-	CurrentPage int   `json:"current_page"`
-	PerPage     int   `json:"per_page"`
+	CurrentPage int   `json:"currentPage"`
+	PerPage     int   `json:"perPage"`
 	Total       int64 `json:"total"`
-	TotalPages  int   `json:"total_pages"`
+	TotalPages  int   `json:"totalPages"`
 }
 
 // NewPaginationInfo creates pagination info from pagination and total count
