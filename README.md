@@ -22,6 +22,7 @@ shared/
 ├── middleware/     # Shared middleware (CORS, Auth, IP Whitelist, etc.)
 ├── database/       # Database connection utilities
 ├── storage/        # Storage utilities (GCS, etc.)
+├── repository/     # Base repository pattern for data access
 └── README.md
 ```
 
@@ -114,3 +115,9 @@ db, err := database.Initialize(config)
 - `SaveWebhookJSONFromBytes()` - Save webhook JSON from bytes to GCS
 - `ReadWebhookJSON()` - Read webhook JSON from GCS
 - `DeleteWebhookJSON()` - Delete webhook JSON from GCS
+
+### repository
+- `BaseRepository[T]` - Generic base repository interface
+- `NewBaseRepository[T]()` - Create new base repository instance
+- Provides CRUD operations: Create, FindByID, FindByUUID, FindAll, FindOne, FindMany, Update, UpdateByID, Delete, HardDelete, Count, Exists
+- See [repository/README.md](./repository/README.md) for detailed documentation and examples
